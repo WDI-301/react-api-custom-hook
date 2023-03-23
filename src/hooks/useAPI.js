@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from 'react'
 
 const useAPI = (route, id) => {
+
+  const [data, setData] = useState(null)
+
   //fetch data
   useEffect(() => {
     const baseUrl = 'https://jsonplaceholder.typicode.com'
     fetch(`${baseUrl}/${route}/${id}`)
       .then(response => response.json())
-      .then(json => console.log(json))
+      .then(json => setData(json))
       .catch(error => console.log(error))
  
     // async/await
@@ -17,14 +20,9 @@ const useAPI = (route, id) => {
     // }
     // fetchData()
 
-}, [route, id])
+  }, [route, id])
 
-  
-
-
-  return (
-    <div>useAPI</div>
-  )
+  return data
 }
 
 export default useAPI

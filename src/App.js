@@ -15,12 +15,15 @@ function App() {
   let API = useAPI(route.value, id.value)
   let name = useAPI(route.value, id.value).name
 
+
   return (
     <div className="App App-header">
       <h1>Custom API Hooks</h1>
       Route:<input {...route} />
       Id: <input {...id} />
-      Name:{name}
+      
+      <p>Name:{name}</p>
+      <p>Title: {API.title}</p>
       <p>------------------------------</p>
 
     </div>

@@ -22,7 +22,34 @@ const useAPI = (route, id) => {
 
   }, [route, id])
 
-  return data
+  switch (route) {
+    case 'users':
+      let newData = {
+        ...data
+      }
+      if (newData.title === undefined) {
+        newData.title = "No Data"
+      }
+      return newData
+
+    case 'todos':
+      
+      return {
+        name: 'Empty',
+        title: data.title
+      }
+
+    case 'posts':
+      return {
+        name: 'No Name',
+        ...data
+      }
+
+    default:
+        return data
+  }
+
+  // return data
 }
 
 export default useAPI

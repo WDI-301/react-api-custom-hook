@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 
 const useAPI = (route, id) => {
 
-  const [data, setData] = useState('hello')
+  const [data, setData] = useState('')
 
   //fetch data
   useEffect(() => {

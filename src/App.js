@@ -1,19 +1,19 @@
+import React, {useState} from 'react'
 import logo from './logo.svg';
 import './App.css';
 import useAPI from './hooks/useAPI'
 import useInput from './hooks/useInput'
 
+
 function App() {
   // console.log(useAPI('users',2));
-
+  const [query, setQuery] = useState('query')
   //custom Hook for input
   const route = useInput('route')
   const id = useInput('id')
 
-  console.log('!@-------useAPI-------@!')
-  console.log(useAPI(route.value, id.value).name)
+  let API = useAPI(route.value, id.value)
   let name = useAPI(route.value, id.value).name
-  
 
   return (
     <div className="App App-header">
@@ -22,9 +22,7 @@ function App() {
       Id: <input {...id} />
       Name:{name}
       <p>------------------------------</p>
-      
-      <button onClick={useAPI(route.value, id.value)}>Query</button>
-    
+
     </div>
   );
 }
